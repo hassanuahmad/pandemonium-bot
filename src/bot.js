@@ -86,7 +86,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
           if (lastMessage.content === "Mirage") {
             const embed = {
               title: `Map is \`${lastMessage}\``,
-              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **Pandemonium**\n\nCopy in console:\n**connect 208.167.251.244:27035;password Pandemonium**`,
+              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **chaos**\n\nCopy in console:\n**connect 208.167.251.244:27035;password chaos**`,
               color: 7584788,
               thumbnail: {
                 url: "https://i.imgur.com/LspvXhH.jpg",
@@ -101,7 +101,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
           } else if (lastMessage.content === "Dust 2") {
             const mapDust2 = {
               title: `Map is \`${lastMessage}\``,
-              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **Pandemonium**\n\nCopy in console:\n**connect 208.167.251.244:27035;password Pandemonium**`,
+              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **chaos**\n\nCopy in console:\n**connect 208.167.251.244:27035;password chaos**`,
               color: 7584788,
               thumbnail: {
                 url: "https://i.imgur.com/h8YLmAM.jpg",
@@ -116,7 +116,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
           } else if (lastMessage.content === "Inferno") {
             const mapInferno = {
               title: `Map is \`${lastMessage}\``,
-              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **Pandemonium**\n\nCopy in console:\n**connect 208.167.251.244:27035;password Pandemonium**`,
+              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **chaos**\n\nCopy in console:\n**connect 208.167.251.244:27035;password chaos**`,
               color: 7584788,
               thumbnail: {
                 url: "https://i.imgur.com/cpH8vnd.jpg",
@@ -131,7 +131,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
           } else if (lastMessage.content === "Nuke") {
             const mapNuke = {
               title: `Map is \`${lastMessage}\``,
-              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **Pandemonium**\n\nCopy in console:\n**connect 208.167.251.244:27035;password Pandemonium**`,
+              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **chaos**\n\nCopy in console:\n**connect 208.167.251.244:27035;password chaos**`,
               color: 7584788,
               thumbnail: {
                 url: "https://i.imgur.com/8ERmYwv.jpg",
@@ -146,7 +146,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
           } else if (lastMessage.content === "Overpass") {
             const mapOverpass = {
               title: `Map is \`${lastMessage}\``,
-              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **Pandemonium**\n\nCopy in console:\n**connect 208.167.251.244:27035;password Pandemonium**`,
+              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **chaos**\n\nCopy in console:\n**connect 208.167.251.244:27035;password chaos**`,
               color: 7584788,
               thumbnail: {
                 url: "https://i.imgur.com/ZhP3hKo.jpg",
@@ -161,7 +161,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
           } else if (lastMessage.content === "Train") {
             const mapTrain = {
               title: `Map is \`${lastMessage}\``,
-              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **Pandemonium**\n\nCopy in console:\n**connect 208.167.251.244:27035;password Pandemonium**`,
+              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **chaos**\n\nCopy in console:\n**connect 208.167.251.244:27035;password chaos**`,
               color: 7584788,
               thumbnail: {
                 url: "https://i.imgur.com/PoYG4bk.jpg",
@@ -176,7 +176,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
           } else if (lastMessage.content === "Vertigo") {
             const mapVertigo = {
               title: `Map is \`${lastMessage}\``,
-              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **Pandemonium**\n\nCopy in console:\n**connect 208.167.251.244:27035;password Pandemonium**`,
+              description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **chaos**\n\nCopy in console:\n**connect 208.167.251.244:27035;password chaos**`,
               color: 7584788,
               thumbnail: {
                 url: "https://i.imgur.com/pQrBzZk.jpg",
