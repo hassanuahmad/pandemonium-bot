@@ -11,6 +11,27 @@ client.login(process.env.PANDEMONIUM_BOT_TOKEN);
 client.on("ready", () => {
   console.log(`${client.user.tag} has logged in.`);
   client.user.setActivity("Serving Pandemonium").catch(console.error);
+
+  //Get member count
+  let myGuild = client.guilds.cache.get("714305139539968013");
+  let memberCount = myGuild.memberCount;
+  let memberCountChannel = myGuild.channels.cache.get("822902114719236098");
+  memberCountChannel.setName("Members: " + memberCount);
+});
+
+client.on("guildMemberAdd", (member) => {
+  let myGuild = bot.guilds.cache.get("714305139539968013");
+
+  let memberCount = myGuild.memberCount;
+  let MemberCountChannel = myGuild.channels.cache.get("822902114719236098");
+  MemberCountChannel.setName("Members: " + memberCount);
+});
+
+client.on("guildMemberRemove", (member) => {
+  let myGuild = bot.guilds.cache.get("714305139539968013");
+  let memberCount = myGuild.memberCount;
+  let MemberCountChannel = myGuild.channels.cache.get("Y822902114719236098");
+  MemberCountChannel.setName("Members: " + memberCount);
 });
 
 client.on("message", async (message) => {
@@ -68,6 +89,7 @@ client.on("message", async (message) => {
     } //end of veto command
 
     if (CMD_NAME == "server") {
+      setTimeout(() => message.delete(), 5000);
       const embed = {
         title: `Pandemonium Server`,
         description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **chaos**\n\nCopy in console:\n**connect 208.167.251.244:27035;password chaos**`,
@@ -81,11 +103,11 @@ client.on("message", async (message) => {
     } //end of server command
 
     if (CMD_NAME == "ff") {
+      setTimeout(() => message.delete(), 5000);
       const embed = {
         title: `Forest Finery`,
         description: `Click the link below to support Forest Finery!\n\`Plant 20 trees for every item purchased!\`\n\nhttps://www.forestfinery.com/`,
         color: "#00594c",
-        timestamp: new Date(),
         thumbnail: {
           url: "https://i.imgur.com/OpwD4fT.jpg",
         },
