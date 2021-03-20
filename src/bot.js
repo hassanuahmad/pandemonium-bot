@@ -89,7 +89,7 @@ client.on("message", async (message) => {
     } //end of veto command
 
     if (CMD_NAME == "server") {
-      setTimeout(() => message.delete(), 5000);
+      setTimeout(() => message.delete(), 2000);
       const embed = {
         title: `Pandemonium Server`,
         description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **chaos**\n\nCopy in console:\n**connect 208.167.251.244:27035;password chaos**`,
@@ -103,7 +103,7 @@ client.on("message", async (message) => {
     } //end of server command
 
     if (CMD_NAME == "ff") {
-      setTimeout(() => message.delete(), 5000);
+      setTimeout(() => message.delete(), 2000);
       const embed = {
         title: `Forest Finery`,
         description: `Click the link below to support Forest Finery!\n\`Plant 20 trees for every item purchased!\`\n\nhttps://www.forestfinery.com/`,
