@@ -66,6 +66,32 @@ client.on("message", async (message) => {
         mapLines.react("❌");
       }
     } //end of veto command
+
+    if (CMD_NAME == "server") {
+      const embed = {
+        title: `Pandemonium Server`,
+        description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **chaos**\n\nCopy in console:\n**connect 208.167.251.244:27035;password chaos**`,
+        color: 7584788,
+        timestamp: new Date(),
+        thumbnail: {
+          url: "https://i.imgur.com/vHIoeL4.png",
+        },
+      };
+      message.channel.send({ embed });
+    } //end of server command
+
+    if (CMD_NAME == "ff") {
+      const embed = {
+        title: `Forest Finery`,
+        description: `Click the link below to support Forest Finery!\n\`Plant 20 trees for every item purchased!\`\n\nhttps://www.forestfinery.com/`,
+        color: "#00594c",
+        timestamp: new Date(),
+        thumbnail: {
+          url: "https://i.imgur.com/OpwD4fT.jpg",
+        },
+      };
+      message.channel.send({ embed });
+    } //end of ff command
   }
 });
 
