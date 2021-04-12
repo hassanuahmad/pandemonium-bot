@@ -36,7 +36,7 @@ client.on("guildMemberRemove", (member) => {
 
 client.on("message", async (message) => {
   //this is so we who sent the message, not the BOT
-  if (message.author.client) return;
+  if (message.author.bot) return;
 
   if (message.content === "gay") {
     message.channel.send("We know Wargasm-OG- is GAY boi");
