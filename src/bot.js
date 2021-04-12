@@ -36,7 +36,6 @@ client.on("guildMemberRemove", (member) => {
 
 client.on("message", async (message) => {
   //this is so we who sent the message, not the BOT
-  // if (message.author.bot) return;
   if (message.author.client) return;
 
   if (message.content === "gay") {
@@ -151,4 +150,3 @@ client.on("messageReactionAdd", async (reaction, user) => {
       .catch(console.error);
   } //end of the ✅ reaction if statemtn
 }); //end of the "messageReactionAdd" listner
-
