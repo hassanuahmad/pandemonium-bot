@@ -38,8 +38,11 @@ client.on("message", async (message) => {
   //this is so we who sent the message, not the BOT
   if (message.author.bot) return;
 
-  if (message.content === "gay") {
+  if (message.content === "war") {
     message.channel.send("We know Wargasm-OG- is GAY boi");
+  }
+  if (message.content === "gay") {
+    message.channel.send("Mean of nice:\n\tlighthearted and carefree...");
   }
 
   //splitting the command and and the args
