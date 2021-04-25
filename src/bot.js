@@ -5,7 +5,6 @@ const client = new Discord.Client({
   partials: ["MESSAGE", "CHANNEL", "REACTION"],
 });
 const PREFIX = "!";
-const SERVER_PASSWORD = "boomer";
 client.login(process.env.PANDEMONIUM_BOT_TOKEN);
 
 //BOT is online and ready -> npm run dev
@@ -98,7 +97,7 @@ client.on("message", async (message) => {
       setTimeout(() => message.delete(), 2000);
       const embed = {
         title: `Pandemonium Server`,
-        description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **{SERVER_PASSWORD}**\n\nCopy in console:\n**connect 208.167.251.244:27035;password {SERVER_PASSWORD}**`,
+        description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **${process.env.SERVER_PASSWORD}**\n\nCopy in console:\n**connect 208.167.251.244:27035;password ${process.env.SERVER_PASSWORD}**`,
         color: 7584788,
         timestamp: new Date(),
         thumbnail: {
@@ -191,7 +190,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
         if (lastMessage.author.client) {
           const embed = {
             title: `Map is \`${lastMessage}\``,
-            description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **{SERVER_PASSWORD}**\n\nCopy in console:\n**connect 208.167.251.244:27035;password {SERVER_PASSWORD}**`,
+            description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **${process.env.SERVER_PASSWORD}**\n\nCopy in console:\n**connect 208.167.251.244:27035;password ${process.env.SERVER_PASSWORD}**`,
             color: 7584788,
             thumbnail: {
               url: "https://i.imgur.com/BFtfLbo.jpg[/img]",
