@@ -5,6 +5,7 @@ const client = new Discord.Client({
   partials: ["MESSAGE", "CHANNEL", "REACTION"],
 });
 const PREFIX = "!";
+const SERVER_PASSWORD = "boomer";
 client.login(process.env.PANDEMONIUM_BOT_TOKEN);
 
 //BOT is online and ready -> npm run dev
@@ -38,9 +39,14 @@ client.on("message", async (message) => {
   //this is so we who sent the message, not the BOT
   if (message.author.bot) return;
 
-  if (message.content === "war") {
+  if (message.content === "war" || message.content === "WAR") {
     message.channel.send("We know Wargasm-OG- is GAY boi");
   }
+
+  if (message.content === "hua" || message.content === "HUA") {
+    message.channel.send("daddy is here, Please behave!");
+  }
+
 
   //splitting the command and and the args
   if (message.content.startsWith(PREFIX)) {
@@ -92,7 +98,7 @@ client.on("message", async (message) => {
       setTimeout(() => message.delete(), 2000);
       const embed = {
         title: `Pandemonium Server`,
-        description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **boomer**\n\nCopy in console:\n**connect 208.167.251.244:27035;password boomer**`,
+        description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **{SERVER_PASSWORD}**\n\nCopy in console:\n**connect 208.167.251.244:27035;password {SERVER_PASSWORD}**`,
         color: 7584788,
         timestamp: new Date(),
         thumbnail: {
@@ -128,7 +134,7 @@ client.on("message", (message) => {
     .split(/\s+/);
   const [command, input] = args;
 
-  if (command === "clear") {
+  if (command === "clear" || command === "c") {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) {
       return message.channel.send("You don't have the permissions!");
     }
@@ -185,7 +191,7 @@ client.on("messageReactionAdd", async (reaction, user) => {
         if (lastMessage.author.client) {
           const embed = {
             title: `Map is \`${lastMessage}\``,
-            description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **boomer**\n\nCopy in console:\n**connect 208.167.251.244:27035;password boomer**`,
+            description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **{SERVER_PASSWORD}**\n\nCopy in console:\n**connect 208.167.251.244:27035;password {SERVER_PASSWORD}**`,
             color: 7584788,
             thumbnail: {
               url: "https://i.imgur.com/BFtfLbo.jpg[/img]",
