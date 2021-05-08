@@ -47,6 +47,11 @@ client.on("message", async (message) => {
     message.channel.send("daddy is here, Please behave!");
   }
 
+  if (message.content === "behind" || message.content === "BEHIND") {
+    message.channel.send("Josh The Asian is behind you with a zeus :middle_finger:");
+  }
+
+
 
   //splitting the command and and the args
   if (message.content.startsWith(PREFIX)) {
