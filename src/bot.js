@@ -51,7 +51,9 @@ client.on("message", async (message) => {
     message.channel.send("Josh The Asian is behind you with a zeus :middle_finger:");
   }
 
-
+  if (message.content === "justin" || message.content === "JUSTIN") {
+    message.channel.send("wait, gotta finish this assignment real quick then we can play");
+  }
 
   //splitting the command and and the args
   if (message.content.startsWith(PREFIX)) {
