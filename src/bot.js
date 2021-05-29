@@ -55,6 +55,10 @@ client.on("message", async (message) => {
     message.channel.send("wait, gotta finish this assignment real quick then we can play");
   }
 
+  if (message.content === "jorj" || message.content === "JORJ") {
+    message.channel.send("always banned & muted annoying kid! 🔨");
+  }
+
   //splitting the command and and the args
   if (message.content.startsWith(PREFIX)) {
     const [CMD_NAME, ...args] = message.content
