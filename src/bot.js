@@ -39,24 +39,28 @@ client.on("message", async (message) => {
   //this is so we who sent the message, not the BOT
   if (message.author.bot) return;
 
-  if (message.content === "war" || message.content === "WAR") {
+  if (message.content.toLowerCase() === "war") {
     message.channel.send("We know Wargasm-OG- is GAY boi");
   }
 
-  if (message.content === "hua" || message.content === "HUA") {
+  if (message.content.toLowerCase() === "hua") {
     message.channel.send("daddy is here, Please behave!");
   }
 
-  if (message.content === "behind" || message.content === "BEHIND") {
+  if (message.content.toLowerCase() === "behind") {
     message.channel.send("Josh The Asian is behind you with a zeus :middle_finger:");
   }
 
-  if (message.content === "justin" || message.content === "JUSTIN") {
+  if (message.content.toLowerCase() === "justin") {
     message.channel.send("wait, gotta finish this assignment real quick then we can play");
   }
 
-  if (message.content === "jorj" || message.content === "JORJ") {
+  if (message.content.toLowerCase() === "jorj") {
     message.channel.send("always banned & muted annoying kid! 🔨");
+  }
+
+  if (message.content.toLowerCase() === "wheat") {
+    message.channel.send("playing for a bit and then sleeping");
   }
 
   //splitting the command and and the args
