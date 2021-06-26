@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const SERVER_PASSWORD = "boomer";
+const config = require("../config.json");
+let password = config.server_password;
 
 module.exports.run = async (client, message, args) => {
     const maps = [
@@ -53,7 +54,7 @@ module.exports.run = async (client, message, args) => {
               if (lastMessage.author.client) {
                 const embed = {
                   title: `Map is \`${lastMessage}\``,
-                  description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **${SERVER_PASSWORD}**\n\nCopy in console:\n**connect 208.167.251.244:27035;password ${SERVER_PASSWORD}**`,
+                  description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **${password}**\n\nCopy in console:\n**connect 208.167.251.244:27035;password ${password}**`,
                   color: 7584788,
                   thumbnail: {
                     url: "https://i.imgur.com/BFtfLbo.jpg[/img]",

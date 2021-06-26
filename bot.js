@@ -9,6 +9,7 @@ const client = new Discord.Client({
 client.commands = new Discord.Collection();
 client.login(process.env.PANDEMONIUM_BOT_TOKEN);
 
+//Read the different commands from the folder
 fs.readdir("./commands/", (err, files) => {
   if(err) console.log(err);
 
@@ -37,6 +38,7 @@ client.on("ready", () => {
   memberCountChannel.setName("Members: " + memberCount);
 });
 
+//Add memeber to the counter
 client.on("guildMemberAdd", (member) => {
   let myGuild = bot.guilds.cache.get("714305139539968013");
 
@@ -45,6 +47,7 @@ client.on("guildMemberAdd", (member) => {
   MemberCountChannel.setName("Members: " + memberCount);
 });
 
+//Remove memeber from the counter
 client.on("guildMemberRemove", (member) => {
   let myGuild = bot.guilds.cache.get("714305139539968013");
   let memberCount = myGuild.memberCount;
@@ -52,8 +55,8 @@ client.on("guildMemberRemove", (member) => {
   MemberCountChannel.setName("Members: " + memberCount);
 });
 
+//Command Manager
 client.on("message", async (message) => {
-  //this is so we who sent the message, not the BOT
   if (message.author.bot) return;
   if(message.channel.type === "dm") return;
 
