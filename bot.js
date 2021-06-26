@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const Discord = require("discord.js");
+const config = require("./config.json");
 const fs = require("fs");
 const client = new Discord.Client({
   partials: ["MESSAGE", "CHANNEL", "REACTION"],
@@ -20,7 +21,7 @@ fs.readdir("./commands/", (err, files) => {
   jsfile.forEach((f, i) => {
     let props = require(`./commands/${f}`);
     console.log(`${f} loaded!`);
-    bot.commands.set(props.help.name, props);
+    client.commands.set(props.help.name, props);
   });
 });
 
@@ -64,8 +65,8 @@ client.on("message", async (message) => {
   //Check for prefix
   if(!cmd.startsWith(config.prefix)) return;
 
-  let commandfile = bot.commands.get(cmd.slice(prefix.length));
-  if(commandfile) commandfile.run(bot,message,args);
+  let commandfile = client.commands.get(cmd.slice(prefix.length));
+  if(commandfile) commandfile.run(client,message,args);
 
   /* Funny Replies */
   if (message.content.toLowerCase() === "war") {
