@@ -1,11 +1,11 @@
 require("dotenv").config();
 
 const Discord = require("discord.js");
-const fs = require("fs");
+// const fs = require("fs");
 const client = new Discord.Client({
   partials: ["MESSAGE", "CHANNEL", "REACTION"],
 });
-client.commands = new Discord.Collection();
+// client.commands = new Discord.Collection();
 client.login(process.env.PANDEMONIUM_BOT_TOKEN);
 const PREFIX = "!";
 const SERVER_PASSWORD = "boomer";
