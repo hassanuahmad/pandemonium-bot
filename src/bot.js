@@ -1,30 +1,28 @@
 require("dotenv").config();
 
 const Discord = require("discord.js");
-// const fs = require("fs");
+const fs = require("fs");
 const client = new Discord.Client({
   partials: ["MESSAGE", "CHANNEL", "REACTION"],
 });
-// client.commands = new Discord.Collection();
+client.commands = new Discord.Collection();
 client.login(process.env.PANDEMONIUM_BOT_TOKEN);
-const PREFIX = "!";
-const SERVER_PASSWORD = "boomer";
 
-// fs.readdir("./commands/", (err, files) => {
-//   if(err) console.log(err);
+fs.readdir("./commands/", (err, files) => {
+  if(err) console.log(err);
 
-//   let jsfile = files.filter(f => f.split(".").pop() === "js")
-//   if(jsfile.length <= 0) {
-//     console.log("Couldn't find commands!");
-//     return;
-//   }
+  let jsfile = files.filter(f => f.split(".").pop() === "js")
+  if(jsfile.length <= 0) {
+    console.log("Couldn't find commands!");
+    return;
+  }
 
-//   jsfile.forEach((f, i) => {
-//     let props = require(`./commands/${f}`);
-//     console.log(`${f} loaded!`);
-//     bot.commands.set(props.help.name, props);
-//   });
-// });
+  jsfile.forEach((f, i) => {
+    let props = require(`./commands/${f}`);
+    console.log(`${f} loaded!`);
+    bot.commands.set(props.help.name, props);
+  });
+});
 
 //BOT is online and ready -> npm run dev
 client.on("ready", () => {
@@ -56,192 +54,39 @@ client.on("guildMemberRemove", (member) => {
 client.on("message", async (message) => {
   //this is so we who sent the message, not the BOT
   if (message.author.bot) return;
+  if(message.channel.type === "dm") return;
 
+  let prefix = config.prefix;
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+  
+  //Check for prefix
+  if(!cmd.startsWith(config.prefix)) return;
+
+  let commandfile = bot.commands.get(cmd.slice(prefix.length));
+  if(commandfile) commandfile.run(bot,message,args);
+
+  /* Funny Replies */
   if (message.content.toLowerCase() === "war") {
     message.channel.send("We know Wargasm-OG- is GAY boi");
   }
-
   if (message.content.toLowerCase() === "hua") {
     message.channel.send("daddy is here, Please behave!");
   }
-
   if (message.content.toLowerCase() === "behind") {
     message.channel.send("Josh The Asian is behind you with a zeus :middle_finger:");
   }
-
   if (message.content.toLowerCase() === "justin") {
     message.channel.send("wait, gotta finish this assignment real quick then we can play");
   }
-
   if (message.content.toLowerCase() === "jorj") {
     message.channel.send("always banned & muted annoying kid! 🔨");
   }
-
   if (message.content.toLowerCase() === "wheat") {
     message.channel.send("playing for a bit and then sleeping");
   }
-
   if (message.content.toLowerCase() === "faith") {
     message.channel.send("HUA is better than u in every game so suck it up");
   }
-
-  //splitting the command and and the args
-  if (message.content.startsWith(PREFIX)) {
-    const [CMD_NAME, ...args] = message.content
-      .trim()
-      .substring(PREFIX.length)
-      .split(/\s+/);
-
-    //Knife Command (Basically flip a coin)
-    if (CMD_NAME === "veto") {
-      const maps = [
-        "Mirage",
-        "Dust 2",
-        "Inferno",
-        "Nuke",
-        "Train",
-        "Overpass",
-        "Vertigo",
-      ];
-      //random head and tails
-      function doRandHT() {
-        var rand = ["**```HEADS```**", "**```TAILS```**"];
-        return rand[Math.floor(Math.random() * rand.length)];
-      }
-
-      //printing the HT winner show the welcome line
-      const embed = {
-        title:
-          `Welcome to Pandemonium GAYMENS!\n\nKnife Round Winner: ` +
-          doRandHT(),
-        description: `**VETO** Winner vetos first map\nReact with ✅ on the last map`,
-        color: 7584788,
-        timestamp: new Date(),
-        thumbnail: {
-          url: "https://i.imgur.com/vHIoeL4.png",
-        },
-      };
-      message.channel.send({ embed });
-
-      //putting the maps in different lines and giving them the -1 reaction and then deleting it
-      for (let i = 0; i < maps.length; i++) {
-        const mapLines = await message.channel.send(maps[i]);
-        mapLines.react("✅");
-        mapLines.react("❌");
-      }
-    } //end of veto command
-
-    if (CMD_NAME == "server") {
-      setTimeout(() => message.delete(), 2000);
-      const embed = {
-        title: `Pandemonium Server`,
-        description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **${SERVER_PASSWORD}**\n\nCopy in console:\n**connect 208.167.251.244:27035;password ${SERVER_PASSWORD}**`,
-        color: 7584788,
-        timestamp: new Date(),
-        thumbnail: {
-          url: "https://i.imgur.com/vHIoeL4.png",
-        },
-      };
-      message.channel.send({ embed });
-    } //end of server command
-
-    if (CMD_NAME == "ff") {
-      setTimeout(() => message.delete(), 2000);
-      const embed = {
-        title: `Forest Finery`,
-        description: `Click the link below to support Forest Finery!\n\`Plant 20 trees for every item purchased!\`\n\nhttps://www.forestfinery.com/`,
-        color: "#00594c",
-        thumbnail: {
-          url: "https://i.imgur.com/OpwD4fT.jpg",
-        },
-      };
-      message.channel.send({ embed });
-    } //end of ff command
-  }
 });
-
-/* CODE COPIED SOF - START */
-client.on("message", (message) => {
-  if (!message.content.startsWith(PREFIX) || message.author.bot) return;
-
-  const args = message.content
-    .toLowerCase()
-    .slice(PREFIX.length)
-    .trim()
-    .split(/\s+/);
-  const [command, input] = args;
-
-  if (command === "clear" || command === "c") {
-    if (!message.member.hasPermission("MANAGE_MESSAGES")) {
-      return message.channel.send("You don't have the permissions!");
-    }
-
-    if (isNaN(input)) {
-      return message.channel
-        .send("Enter the amount messages that you would like to delete")
-        .then((sent) => {
-          setTimeout(() => {
-            sent.delete();
-          }, 2500);
-        });
-    }
-
-    if (Number(input) < 0) {
-      return message.channel.send("Enter a positive number").then((sent) => {
-        setTimeout(() => {
-          sent.delete();
-        }, 2500);
-      });
-    }
-
-    // add an extra to delete the current message too
-    const amount = Number(input) > 100 ? 101 : Number(input) + 1;
-
-    message.channel.bulkDelete(amount, true).then((_message) => {
-      message.channel
-        // do you want to include the current message here?
-        // if not it should be ${_message.size - 1}
-        .send(`BOT deleted \`${_message.size}\` messages :broom:`)
-        .then((sent) => {
-          setTimeout(() => {
-            sent.delete();
-          }, 2500);
-        });
-    });
-  }
-});
-/* CODE COPIED SOF - END */
-
-client.on("messageReactionAdd", async (reaction, user) => {
-  const message = reaction.message;
-  if (message.author.id == user.id) return;
-  if (reaction.emoji.name == "❌") reaction.message.delete();
-  if (reaction.emoji.name == "✅") {
-    setTimeout(() => message.delete(), 2000);
-    await client.channels.fetch("830954302658445362");
-    let channel = client.channels.cache.get("830954302658445362");
-    channel.messages
-      .fetch({ limit: 1 })
-      .then((messages) => {
-        let lastMessage = messages.first();
-
-        if (lastMessage.author.client) {
-          const embed = {
-            title: `Map is \`${lastMessage}\``,
-            description: `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **${SERVER_PASSWORD}**\n\nCopy in console:\n**connect 208.167.251.244:27035;password ${SERVER_PASSWORD}**`,
-            color: 7584788,
-            thumbnail: {
-              url: "https://i.imgur.com/BFtfLbo.jpg[/img]",
-            },
-            timestamp: new Date(),
-            footer: {
-              text: "Please join the server in 5min",
-              icon_url: "https://i.imgur.com/vHIoeL4.png",
-            },
-          };
-          message.channel.send({ embed });
-        }
-      })
-      .catch(console.error);
-  } //end of the ✅ reaction if statemtn
-}); //end of the "messageReactionAdd" listner
