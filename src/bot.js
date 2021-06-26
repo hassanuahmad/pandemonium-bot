@@ -1,12 +1,30 @@
 require("dotenv").config();
 
 const Discord = require("discord.js");
+const fs = require("fs");
 const client = new Discord.Client({
   partials: ["MESSAGE", "CHANNEL", "REACTION"],
 });
+client.commands = new Discord.Collection();
+client.login(process.env.PANDEMONIUM_BOT_TOKEN);
 const PREFIX = "!";
 const SERVER_PASSWORD = "boomer";
-client.login(process.env.PANDEMONIUM_BOT_TOKEN);
+
+fs.readdir("./commands/", (err, files) => {
+  if(err) console.log(err);
+
+  let jsfile = files.filter(f => f.split(".").pop() === "js")
+  if(jsfile.length <= 0) {
+    console.log("Couldn't find commands!");
+    return;
+  }
+
+  jsfile.forEach((f, i) => {
+    let props = require(`./commands/${f}`);
+    console.log(`${f} loaded!`);
+    bot.commands.set(props.help.name, props);
+  });
+});
 
 //BOT is online and ready -> npm run dev
 client.on("ready", () => {
@@ -61,6 +79,10 @@ client.on("message", async (message) => {
 
   if (message.content.toLowerCase() === "wheat") {
     message.channel.send("playing for a bit and then sleeping");
+  }
+
+  if (message.content.toLowerCase() === "faith") {
+    message.channel.send("HUA is better than u in every game so suck it up");
   }
 
   //splitting the command and and the args
