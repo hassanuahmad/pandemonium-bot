@@ -10,21 +10,21 @@ client.login(process.env.PANDEMONIUM_BOT_TOKEN);
 const PREFIX = "!";
 const SERVER_PASSWORD = "boomer";
 
-fs.readdir("./commands/", (err, files) => {
-  if(err) console.log(err);
+// fs.readdir("./commands/", (err, files) => {
+//   if(err) console.log(err);
 
-  let jsfile = files.filter(f => f.split(".").pop() === "js")
-  if(jsfile.length <= 0) {
-    console.log("Couldn't find commands!");
-    return;
-  }
+//   let jsfile = files.filter(f => f.split(".").pop() === "js")
+//   if(jsfile.length <= 0) {
+//     console.log("Couldn't find commands!");
+//     return;
+//   }
 
-  jsfile.forEach((f, i) => {
-    let props = require(`./commands/${f}`);
-    console.log(`${f} loaded!`);
-    bot.commands.set(props.help.name, props);
-  });
-});
+//   jsfile.forEach((f, i) => {
+//     let props = require(`./commands/${f}`);
+//     console.log(`${f} loaded!`);
+//     bot.commands.set(props.help.name, props);
+//   });
+// });
 
 //BOT is online and ready -> npm run dev
 client.on("ready", () => {
