@@ -1,17 +1,14 @@
-const Discord = require("discord.js");
-const config = require("../config.json");
-let prefix = config.prefix;
+module.exports = {
+	name: 'clear',
+	description: 'Command that clears messeges from the server',
+	async execute(message, args) {
+        if (!args[0]) return message.channel.send("Please enter the amount of messages that you want to clear!");
+        if (isNaN(args[0])) return message.channel.send("Please enter a real number!");
+        if (args[0] > 100) return message.channel.send("You can't delete more than 100 messeges!");
+        if (args[0] < 1) return message.channel.send("You must clear atleast 1 message!");
 
-module.exports.run = async (client, message, args) => {
-    if(!args[0]) return message.channel.send('Please specify a number of messages to delete ranging from 1 - 99')
-    if(isNaN(args[0])) return message.channel.send('Numbers are only allowed')
-    if(parseInt(args[0]) > 99) return message.channel.send('The max amount of messages that I can delete is 99')
-    await message.channel.bulkDelete(parseInt(args[0]) + 1)
-        .catch(err => console.log(err))
-    message.channel.send('Deleted ' + args[0]  + " messages.")
-}
-
-module.exports.help = {
-  name:"clear",
-  name:"c"
-}
+        await message.channel.messages.fetch({limit: args[0]}).then(messages => {
+            message.channel.bulkDelete(messages);
+        });
+    },
+};
