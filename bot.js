@@ -5,10 +5,11 @@ const {prefix, server_password} = require("./config.json");
 const memberCounter = require("./counters/member-counter");
 const fs = require("fs");
 const client = new Discord.Client({partials: ["MESSAGE", "CHANNEL", "REACTION"],});
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
 client.commands = new Discord.Collection();
 client.login(process.env.PANDEMONIUM_BOT_TOKEN);
 
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
