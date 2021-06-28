@@ -2,7 +2,7 @@ const {prefix, server_password} = require("../config.json");
 module.exports = {
 	name: 'server',
 	description: 'Information about our CS:GO Server',
-	execute(client, message, args) {
+	execute(message) {
         setTimeout(() => message.delete(), 2000);
         const embed = {
             title: `Pandemonium Server`,

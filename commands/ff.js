@@ -1,8 +1,8 @@
 module.exports = {
 	name: 'ff',
 	description: 'Information about Forest Finery',
-	execute(client, message, args) {
-        // setTimeout(() => message.delete(), 2000);
+	execute(message) {
+        setTimeout(() => message.delete(), 2000);
         const embed = {
             title: `Forest Finery`,
             description: `Click the link below to support Forest Finery!\n\`Plant 20 trees for every item purchased!\`\n\nhttps://www.forestfinery.com/`,
