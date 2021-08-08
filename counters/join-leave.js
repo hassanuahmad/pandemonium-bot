@@ -1,6 +1,5 @@
-module.exports =
-    ("guildMemberAdd",
-    async (member) => {
+module.exports = async (client) => {
+    client.on("guildMemberAdd", async (member) => {
         const channel = member.guild.channels.cache.get("872000479406723074");
         const embed = new MessageEmbed()
             .setColor("GREEN")
@@ -11,15 +10,14 @@ module.exports =
         channel.send(embed);
     });
 
-module.exports =
-    ("guildMemberRemove",
-    async (member) => {
+    client.on("guildMemberAdd", async (member) => {
         const channel = member.guild.channels.cache.get("872000479406723074");
         const embed = new MessageEmbed()
             .setColor("RED")
-            .setTitle("A member has left the server :(")
+            .setTitle("A member left the server")
             .setDescription(
                 `**${member.displayName}** has left ${member.guild.name}, we now have ${member.guild.memberCount} members!`
             );
         channel.send(embed);
     });
+};
