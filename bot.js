@@ -4,7 +4,6 @@ const Discord = require("discord.js");
 let { MessageEmbed } = require("discord.js");
 const { prefix, server_password } = require("./config.json");
 const memberCounter = require("./counters/member-counter");
-// const joinLeave = require("./counters/join-leave");
 const fs = require("fs");
 const client = new Discord.Client({
     partials: ["MESSAGE", "CHANNEL", "REACTION"],
@@ -25,7 +24,6 @@ client.once("ready", () => {
     console.log(`${client.user.tag} has logged in.`);
     client.user.setActivity("Serving Pandemonium").catch(console.error);
     memberCounter(client);
-    // joinLeave(client);
 });
 
 client.on("message", (message) => {
@@ -42,31 +40,4 @@ client.on("message", (message) => {
         console.error(error);
         message.reply("There was an error trying to execute that command!");
     }
-});
-
-client.on("guildMemberAdd", async (member) => {
-    const channel = member.guild.channels.cache.get("872000479406723074");
-    const embed = new MessageEmbed()
-        .setColor("GREEN")
-        .setTitle("New Member")
-        .setDescription(
-            "hi"
-            // `**${member.displayName}** welcome to ${member.guild.name}, we now have ${member.guild.memberCount} members!`
-        );
-    console.log(embed);
-    channel.send({ embeds: [embed] });
-});
-
-client.on("guildMemberRemove", async (member) => {
-    const channel = member.guild.channels.cache.get("872000479406723074");
-    const embed = new MessageEmbed()
-        .setColor("RED")
-        .setTitle("A member left the server")
-        .setDescription(
-            "hi"
-            // `**${member.displayName}** has left ${member.guild.name}, we now have ${member.guild.memberCount} members!`
-        );
-    console.log(embed);
-
-    channel.send({ embeds: [embed] });
 });
