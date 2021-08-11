@@ -5,7 +5,7 @@ module.exports = {
     execute(message) {
         setTimeout(() => message.delete(), 2000);
         const embed = new MessageEmbed()
-            .setColor("#00594c")
+            .setColor("#00594C")
             .setTitle("Forest Finery")
             .setDescription(
                 `Click the link below to support Forest Finery!\n\`Plant 20 trees for every item purchased!\`\n\nhttps://www.forestfinery.com/`

@@ -20,6 +20,6 @@ module.exports = {
             .then((messages) => {
                 message.channel.bulkDelete(messages);
             });
-        message.channel.send("Deleted " + args[0] + " messages 🧹");
+        // message.channel.send("Deleted " + args[0] + " messages 🧹");
     },
 };
