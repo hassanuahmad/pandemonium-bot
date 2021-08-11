@@ -1,18 +1,21 @@
 {
-  "name": "pandemonium-bot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bot.js",
-    "dev": "nodemon ./bot.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "discord.js": "^13.0.1",
-    "dotenv": "^8.2.0"
-  }
+    "name": "pandemonium-bot",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "engines": {
+        "node": "16.x"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node ./bot.js",
+        "dev": "nodemon ./bot.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js": "^13.0.1",
+        "dotenv": "^8.2.0"
+    }
 }
