@@ -7,12 +7,15 @@ module.exports = {
     execute(message) {
         setTimeout(() => message.delete(), 2000);
         const embed = new MessageEmbed()
-            .setColor("#13D3AC")
-            .setTitle("Pandemonium Server")
+            .setColor("#607D8B")
+            .setTitle("Pandemonium Servers")
             .setDescription(
-                `Click the link below to join the Pandemonium server\n\nConnect: steam://connect/208.167.251.244:27035\nPassword: **${server_password}**\n\nCopy in console:\n**connect 208.167.251.244:27035;password ${server_password}**`
+                `
+                **Public Server**\n\`pandepublic1.noob.club:27576\`\n
+                **Retakes Server**\n\`panderetakes1.noob.club:28408\`\n
+                **Private Server**\n\`pandeprivate.noob.club:27870;password ${server_password}\`\n              
+                `
             )
-            .setTimestamp()
             .setThumbnail("https://i.imgur.com/vHIoeL4.png");
         message.channel.send({ embeds: [embed] });
     },
