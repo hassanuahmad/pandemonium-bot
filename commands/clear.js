@@ -1,10 +1,7 @@
 module.exports = {
     name: "clear",
     async execute(message, args) {
-        if (
-            message.member.roles.cache.has("778424134044352513") ||
-            message.member.roles.cache.has("845758498863316993")
-        ) {
+        if (message.member.roles.cache.has("845758498863316993")) {
             if (!args[0])
                 return message.channel.send(
                     "Please enter the amount of messages that you want to clear!"
