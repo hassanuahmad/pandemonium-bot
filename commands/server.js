@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { prefix, server_password } = require("../config.json");
+const { server_password } = require("../config.json");
 
 module.exports = {
     name: "server",

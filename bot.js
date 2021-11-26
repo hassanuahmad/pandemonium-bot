@@ -1,7 +1,7 @@
 require("dotenv").config();
 
-const { Client, Collection, Intents, MessageEmbed } = require("discord.js");
-const { prefix, server_password } = require("./config.json");
+const { Client, Collection, Intents } = require("discord.js");
+const { prefix } = require("./config.json");
 const fs = require("fs");
 const client = new Client({
     intents: [
