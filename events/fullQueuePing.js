@@ -9,7 +9,7 @@ module.exports = {
         const vcQueue1 = guild.channels.cache.get("876262055710167110");
         const chat10man = client.channels.cache.get("876261877011861575");
 
-        if (vcQueue1.members.size === 1) {
+        if (vcQueue1.members.size === 10) {
             const embed = new MessageEmbed()
                 .setColor("#607D8B")
                 .setTitle("10 Man Queue Filled")
