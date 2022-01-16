@@ -1,5 +1,9 @@
 # pandemonium-bot
 This is Discord BOT for Pandemonium Server with commands and event handlers to simplify server administration.
+
+## Color HEX
+ - #607D8B
+
 ### Commands
  - !coinflip (This command flips a coin)
  - !clear (This command bulk deletes messages)
