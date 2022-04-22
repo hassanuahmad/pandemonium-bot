@@ -11,7 +11,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setColor("RED")
             .setTitle(`Farewell ${generalRole.name}`)
-            .setDescription(`${members.user} has left Pandemonium`);
+            .setDescription(`${members.name} has left Pandemonium`);
 
         await Channel.send({ embeds: [embed] });
     },

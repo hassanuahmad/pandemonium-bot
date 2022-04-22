@@ -11,7 +11,7 @@ module.exports = {
         const embed = new MessageEmbed()
             .setColor("GREEN")
             .setTitle(`New ${generalRole.name}`)
-            .setDescription(`${members.user}, welcome to Pandemonium!`);
+            .setDescription(`${members.name}, welcome to Pandemonium!`);
 
         await Channel.send({ embeds: [embed] });
     },
