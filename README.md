@@ -1,23 +1,25 @@
-# pandemonium-bot
+# Pandemonium Bot
+
 This is Discord BOT for Pandemonium Server with commands and event handlers to simplify server administration.
 
-## Color HEX
- - #607D8B
+> Commands
 
-### Commands
- - !coinflip (This command flips a coin)
- - !clear (This command bulk deletes messages)
- - !server (This command displays information about the server)
+ * !coinflip (This command flips a coin)
+ * !clear (This command bulk deletes messages)
+ * !server (This command displays information about the server)
 
-and much more ...
+> Events
 
-### Events
- - member-counter (Counts the total number of members of the server)
- - join, leave (Sends a message when a new member joins or leaves)
+* member-counter (Counts the total number of members of the server)
+* join, leave (Sends a message when a new member joins or leaves)
 
 and much more ...
+
+> Color HEX
+
+* #607D8B
 
 ## Tech Stack
 
- - JavaScript
- - discord.js
+* JavaScript
+* discord.js
